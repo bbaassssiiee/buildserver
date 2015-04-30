@@ -3,3 +3,4 @@ roles
 pki
 .idea
 plugins/callbacks/profile_tasks.pyc
+.ssh

@@ -19,10 +19,9 @@ https://dl.bintray.com/mitchellh/vagrant/
 
 getting started
 ===============
-git clone https://github.com/bbaassssiiee/buildserver
-cd buildserver
-ansible-playbook -v -i ansible.ini -l local install.yml 
-# 'make install' does the same
-vagrant up
+    git clone https://github.com/bbaassssiiee/buildserver
+    cd buildserver
+    ansible-playbook -v -i ansible.ini -l local install.yml 
+    vagrant up
 
 Connect to the buildserver at the host-only address http://192.168.10.16 (you can set that address in the Vagrantfile)

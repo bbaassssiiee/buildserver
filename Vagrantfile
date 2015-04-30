@@ -12,8 +12,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision "ansible" do |ansible|
     ansible.inventory_path = "ansible.ini"
     ansible.playbook = "provision.yml"
-    ansible.verbose = "vv"
+    ansible.verbose = "vvvv"
     ansible.host_key_checking = "false"
+	ansible.raw_ssh_args = "-o ControlMaster=no"
   end
 
   # The url from where the 'config.vm.box' box will be fetched if it
