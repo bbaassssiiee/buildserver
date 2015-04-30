@@ -34,3 +34,6 @@
 
 - src: https://github.com/AlbanAndrieu/ansible-eclipse.git
   path: ./roles
+
+- src: ThePixelDeveloper.google-chrome
+  path: ./roles

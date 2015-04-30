@@ -21,6 +21,15 @@
     - name: 'checkout OASIS'
       git: dest=/home/vagrant/OASIS
            repo=https://github.com/jguglielmi/OASIS-Maven.git
+           force=yes
+
+    - name: 'correct installer owner and permissions'
+      file: path='/home/vagrant/OASIS/install.sh' state=file mode="u+rwx" owner=vagrant
+
+    - name: 'install OASIS'
+      shell: /home/vagrant/OASIS/install.sh chdir=OASIS/
+             creates=/home/vagrant/.m2/repository/oasis/oasis-plugin/1.0/oasis-plugin-1.0.jar
+      sudo: no
 
     - name: 'remove guest login'
       lineinfile: dest=/usr/share/lightdm/lightdm.conf.d/50-ubuntu.conf regexp='^allow-guest'

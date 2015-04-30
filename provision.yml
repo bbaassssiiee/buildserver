@@ -57,6 +57,7 @@
     - briancoca.oracle_java7
     - briancoca.selenium
     - ansible-eclipse
+    - ThePixelDeveloper.google-chrome
 
   tasks:
     - include: tasks/client_setup.yml
