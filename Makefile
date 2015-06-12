@@ -1,9 +1,20 @@
-VAGRANT_DEFAULT_PROVIDER=virtualbox
+#You can change the debug level with -v -vv or -vvv
+
+#----------------------------------------------------------
+#macro variables:
+#----------------------------------------------------------
+PLAY=ansible-playbook -vv -i ansible.ini
+
+
+#----------------------------------------------------------
+#Rules:
+#----------------------------------------------------------
+
 default: all
 
 .PHONY: install
 install:
-	ansible-playbook -vv -i ansible.ini -l local install.yml
+	$(PLAY) -l local install.yml
 
 .PHONY: clean
 clean:
@@ -24,14 +35,15 @@ clean:
 up:
 	vagrant up --no-provision dev
 	vagrant provision dev
-	
+	#Trigger jenkins to build the solution for the game of life.
+	$(PLAY) -l dev build.yml
 
 .PHONY: deploy
 deploy:
 	vagrant up --no-provision target
 	vagrant provision target
-	ansible-playbook -vv -i ansible.ini -l target deploy.yml
-	ansible-playbook -vv -i ansible.ini -l all smoketest.yml
+	$(PLAY) -l target deploy.yml
+	$(PLAY) -l all smoketest.yml
 
 
 .PHONY: testclient
@@ -44,11 +56,11 @@ testclient:
 
 .PHONY: test
 test: deploy
-	ansible-playbook -vv -i ansible.ini -l target webtest.yml
+	$(PLAY) -l target webtest.yml
 
 .PHONY: smoketest
 smoketest:
-	ansible-playbook -vv -i ansible.ini -l all smoketest.yml
+	$(PLAY) all smoketest.yml
 
 .PHONY: all
 all: install up deploy testclient

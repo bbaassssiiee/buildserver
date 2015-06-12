@@ -1,0 +1,6 @@
+    - name: 'verify https connectivity to Jenkins'
+      sudo: n
+      local_action: uri url=https://dev/jenkins/job/game-of-life/ status_code=200 timeout=100
+      retries: 10
+      delay: 10
+
