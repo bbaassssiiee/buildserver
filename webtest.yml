@@ -5,7 +5,7 @@
   gather_facts: no
   remote_user: vagrant
   become: yes
-  
+
   tasks:
 
   - name: 'verify tcp listening socket for TomCat'

@@ -21,8 +21,8 @@
     - ant
 
 - name: 'untar Ant'
-  unarchive: src=~/{{ant_tarfile}}  
-      dest={{jenkins_tools}}/hudson.tasks.Ant_AntInstallation 
+  unarchive: src=~/{{ant_tarfile}}
+      dest={{jenkins_tools}}/hudson.tasks.Ant_AntInstallation
       copy=no
   when: features.ant and not ant_installed.stat.exists
   tags:

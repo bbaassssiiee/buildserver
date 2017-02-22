@@ -5,5 +5,3 @@
   with_items: "{{ perl_rpms }}"
   tags:
     - perl
-    
-  

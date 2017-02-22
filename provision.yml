@@ -43,7 +43,7 @@
     - include: tasks/settings.yml
 
   roles:
-    - bbaassssiiee.commoncentos 
+    - bbaassssiiee.commoncentos
     - common
     - ntp
     - oracle_java8

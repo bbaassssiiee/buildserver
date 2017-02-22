@@ -5,7 +5,7 @@
   npm: name=npm version=3.8 state=present global=yes
   tags:
     - npm
-    
+
 - name: 'Create NPM package location'
   become: no
   file: path=~/npm-global state=directory mode=0755

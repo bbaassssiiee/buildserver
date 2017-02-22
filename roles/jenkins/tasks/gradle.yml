@@ -21,7 +21,7 @@
   tags:
     - jenkins
     - gradle
-    
+
 - name: 'create directory for Gradle installations'
   file: dest={{jenkins_tools}}/hudson.plugins.gradle.GradleInstallation
         state=directory owner=jenkins group=jenkins

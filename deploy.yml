@@ -20,7 +20,7 @@
       become: no
       register: deployable_http
       local_action: uri url={{ deployable_warfile }} status_code=200
-            return_content=no 
+            return_content=no
                    timeout=30
             validate_certs=no
       register: pollingstatus

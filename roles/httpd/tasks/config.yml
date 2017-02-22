@@ -13,21 +13,21 @@
     - restart httpd
   tags:
     - httpd
-    
+
 - name: 'create ssl configuration file'
   template: src=httpd-conf.d-ssl.conf.j2 dest=/etc/httpd/conf.d/ssl.conf owner=root group=root mode=0600 backup=yes
   notify:
     - restart httpd
   tags:
     - httpd
-    
+
 - name: 'configure ServerName'
   lineinfile: dest=/etc/httpd/conf/httpd.conf regexp='^ServerName '
               line='ServerName {{inventory_hostname}}' state=present
               insertafter='^#ServerName'
   tags:
     - httpd
-    
+
 - name: 'mask ServerTokens'
   lineinfile: dest=/etc/httpd/conf/httpd.conf regexp='^ServerTokens '
               line='ServerTokens Prod' state=present

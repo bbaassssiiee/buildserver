@@ -29,7 +29,7 @@
 
   - name: 'verify https connectivity to Artifactory'
     become: no
-    local_action: uri url=https://build/artifactory/webapp/#/artifacts/browse/tree/General/ext-release-local 
+    local_action: uri url=https://build/artifactory/webapp/#/artifacts/browse/tree/General/ext-release-local
                   status_code=200 validate_certs=no
 
   - name: 'verify https connectivity to Jenkins'

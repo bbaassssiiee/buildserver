@@ -3,7 +3,7 @@
   file: dest=/var/www/html/rw_common/themes/ideal/images state=directory owner=apache mode=0750
   tags:
     - httpd
-    
+
 - name: 'create website home page'
   copy: src={{item}} dest=/var/www/html/{{item}} owner=apache mode=0640
   with_items:
@@ -11,7 +11,7 @@
     - sitemap.xml
   tags:
     - httpd
-    
+
 - name: 'copy website style sheets'
   copy: src=rw_common/themes/ideal/{{item}} dest=/var/www/html/rw_common/themes/ideal/{{item}} owner=apache mode=0640
   with_items:
@@ -21,7 +21,7 @@
     - javascript.js
   tags:
     - httpd
-    
+
 - name: 'copy website graphics'
   copy: src=rw_common/themes/ideal/images/{{item}} dest=/var/www/html/rw_common/themes/ideal/images/{{item}} owner=apache mode=0640
   with_items:
@@ -31,4 +31,4 @@
     - sidebar_right_bg.png
   tags:
     - httpd
-    
+

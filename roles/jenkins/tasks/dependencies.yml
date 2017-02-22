@@ -9,7 +9,7 @@
   tags:
     - jenkins
     - dependencies
-    
+
 - name: 'print red letters if import needed of CA root cert in Java trust store'
   command: "keytool -list -alias {{ inventory_hostname }} -keystore {{java_home}}/jre/lib/security/cacerts -storepass changeit -noprompt"
   ignore_errors: yes

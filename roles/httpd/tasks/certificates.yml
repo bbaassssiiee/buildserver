@@ -8,12 +8,12 @@
   copy: src=pki/buildserverCA.cer dest=/var/www/html/buildserverCA.cer owner=apache group=apache mode=0644
   tags:
     - httpd
-    
+
 - name: 'generate buildserver key'
   command: "openssl genrsa -out /etc/pki/tls/private/{{inventory_hostname}}.key 1024 creates=/etc/pki/tls/private/{{inventory_hostname}}.key"
   tags:
     - httpd
-    
+
 - name: 'generate certificate signing request'
   command: "openssl req -new -key /etc/pki/tls/private/{{inventory_hostname}}.key -out {{inventory_hostname}}.csr -subj '/C=AA/ST=NN/L=Ansible/O=localhost/CN={{inventory_hostname}}'"
   tags:
@@ -23,40 +23,40 @@
   fetch: src={{inventory_hostname}}.csr dest=pki/{{inventory_hostname}}.csr flat=yes
   tags:
     - httpd
-    
+
 - name: 'CA-sign buildserver key in a way to avoid https://github.com/mitchellh/vagrant/issues/2646'
   become: no
   local_action: shell /bin/bash --login -c 'openssl x509 -req -in pki/{{inventory_hostname}}.csr -CA pki/buildserverCA.pem -CAkey pki/buildserverCA.key -CAcreateserial -out pki/{{inventory_hostname}}.crt -days 180'
   tags:
     - httpd
-    
+
 - name: 'copy signed certificate to webserver'
   copy: src=pki/{{inventory_hostname}}.crt dest=/etc/pki/tls/certs/{{inventory_hostname}}.crt
   tags:
     - httpd
-    
+
 - name: 'copy dh_parameters.txt to webserver'
   copy: src=dh_parameters.txt dest=/etc/pki/tls/dh_parameters.txt
   tags:
     - httpd
-    
+
 - name: 'concatenate dh_parameters.txt to webserver'
   shell: "cat /etc/pki/tls/dh_parameters.txt >> /etc/pki/tls/certs/{{inventory_hostname}}.crt"
   notify:
     - restart httpd
   tags:
     - httpd
-    
+
 - name: "copy buildserverCA root cert"
   command: cp /var/www/html/buildserverCA.cer /etc/pki/ca-trust/source/anchors
   tags:
     - httpd
-    
+
 - name: "enable ca-trust"
   command: update-ca-trust force-enable
   tags:
     - httpd
-    
+
 - name: "import buildserverCA root cert into Linux ca-trust"
   command: update-ca-trust extract
   tags:

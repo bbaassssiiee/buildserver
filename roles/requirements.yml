@@ -23,7 +23,7 @@
 # Setup Windows machine as a Jenkins slave
 - src: https://github.com/ferhaty/ferhaty.jenkins-slave.git
   path: ./roles/
-  
+
 - src: https://github.com/bbaassssiiee/windows-selenium-role.git
   path: ./roles/
 
