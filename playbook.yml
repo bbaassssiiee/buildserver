@@ -1,5 +1,13 @@
 #!/usr/bin/env ansible-playbook
 
+- name: Install software on target
+  hosts: centos7
+  become: True
+
+  roles:
+    - {role: dockpack.base_postgres, tags: 'postgres'}
+    - {role: dockpack.base_java8, tags: 'java8'}
+
 - name: Install docker on target too
   hosts: centos7
   become: True

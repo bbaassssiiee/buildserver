@@ -10,4 +10,8 @@ tomcat_list:
     dirname: 'apache-tomcat-7.0.{{tomcat_minor}}'
 tomcat_apps_dir: "/opt/{{ tomcat_list[tomcat_version]['dirname'] }}"
 
+
+vault_postgres_user: dba
+vault_postgres_pass: dba_pass
+base_postgres_net: samenet
 sel_role: node
