@@ -15,7 +15,7 @@ features:
 # Selenium
 hub: 'http://dev:4444/grid/register'
 cur_dir: "{{lookup('pipe','pwd')}}"
-server_version_major: 2.53.1
+server_version_major: 3.141.59
 server_version: "{{server_version_major}}.0"
 download_server: "http://selenium-release.storage.googleapis.com/{{server_version_major}}"
 jar_file: selenium-server-standalone-{{server_version}}.jar

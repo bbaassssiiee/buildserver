@@ -41,7 +41,7 @@ plugins:
   - build-timestamp
   - checkstyle       # source code formatting reports
   - cobertura
-# - copyartifact
+  - copyartifact
   - dashboard-view
   - dry              # dont repeat yourself
   - filesystem_scm    # for on-prem & pre-push
@@ -51,25 +51,25 @@ plugins:
 # - github-branch-source
   - gradle           # build tool
   - jacoco           # test coverage
-#  - jira             # Atlassian Jira API
+  - jira             # Atlassian Jira API
   - jobConfigHistory  # save changes in job configuration
 # - m2release
 #  - msbuild     # Plugin for building Microsoft applications
-#  - nexus-artifact-uploader
-#  - maven-artifact-choicelistprovider
-#  - nexus-task-runner
+  - nexus-artifact-uploader
+  - maven-artifact-choicelistprovider
+  - nexus-task-runner
 #  - parameterized-trigger
   - pmd              #
-#  - promoted-builds
-# - repository-connector
-#  - release
+  - promoted-builds
+  - repository-connector
+  - release
   - role-strategy
 #  - saml                     # SSO authentication
   - scm-sync-configuration
   - ssh-slaves
   - simple-theme-plugin
 #  - sonar            # source code quality
-#  - swarm     # Swarm plugin for build slaves
+  - swarm     # Swarm plugin for build slaves
   - thinBackup       # backup job configurations
   - timestamper
   - violations       #

@@ -41,7 +41,7 @@ yum_packages:
    - yum-utils
    - createrepo
 
-jenkins_data: "/opt/jenkins"
+jenkins_data: "/data/jenkins"
 
 nginx_sites:
   default:
