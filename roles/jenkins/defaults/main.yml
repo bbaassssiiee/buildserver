@@ -65,6 +65,7 @@ plugins:
 #  - release
   - role-strategy
 #  - saml                     # SSO authentication
+  - selenium
   - scm-sync-configuration
   - ssh-slaves
   - simple-theme-plugin

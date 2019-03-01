@@ -39,7 +39,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     build_master.vm.network "private_network", ip: "192.168.10.28", :netmask => "255.255.255.0",  auto_config: true
     build_master.vm.network "forwarded_port", id: 'ssh', guest: 22, host: 2228, auto_correct: false
 #    build_master.vm.network "forwarded_port", guest: 443, host: 8443, auto_correct: true
-    build_master.vm.provision "shell", inline: "ifup eth1", run: "always"
+    build_master.vm.provision "shell", inline: "ifup enp0s8", run: "always"
     build_master.vm.provider "virtualbox" do |vb|
       vb.customize ["modifyvm", :id, "--memory", "8192", "--natnet1", "172.16.1/24"]
       vb.gui = false

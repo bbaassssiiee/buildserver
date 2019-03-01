@@ -16,6 +16,7 @@
   become: True
   roles:
     - {role: pki, tags: 'pki'}
+    - {role: firewall, tags: 'firewall'}
     - {role: jdauphant.nginx, tags: 'nginx'}
 
 - name: Install build tools
@@ -34,6 +35,7 @@
 
   roles:
     - {role: jenkins, tags: 'jenkins'}
+    - {role: selenium, tags: 'selenium'}
 #    - {role: dockpack.base_python, tags: 'python'}
 #    - { role: bbaassssiiee.sonar, tags: 'sonar' }
 #    - { role: bbaassssiiee.artifactory, tags: 'artifactory' } # for built stuff

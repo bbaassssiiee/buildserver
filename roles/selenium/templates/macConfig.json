@@ -1,0 +1,37 @@
+{
+  "capabilities": [
+    {
+      "browserName": "firefox",
+      "marionette": true,
+      "platform": "Mac OS X",
+      "maxInstances": 2,
+      "seleniumProtocol": "WebDriver"
+    },
+    {
+      "browserName": "chrome",
+      "platform": "Mac OS X",
+      "maxInstances": 2,
+      "seleniumProtocol": "WebDriver"
+    },
+    {
+      "browserName": "safari",
+      "platform": "Mac OS X",
+      "maxInstances": 2,
+      "seleniumProtocol": "WebDriver"
+    }
+  ],
+  "proxy": "org.openqa.grid.selenium.proxy.DefaultRemoteProxy",
+  "maxSession": 5,
+  "port": 5555,
+  "register": true,
+  "registerCycle": 5000,
+  "nodeStatusCheckTimeout": 5000,
+  "nodePolling": 5000,
+  "role": "node",
+  "unregisterIfStillDownAfter": 60000,
+  "downPollingLimit": 2,
+  "debug": false,
+  "servlets": [],
+  "withoutServlets": [],
+  "custom": {}
+}

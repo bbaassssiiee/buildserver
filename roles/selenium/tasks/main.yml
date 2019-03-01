@@ -1,0 +1,38 @@
+---
+- name: create directory
+  file:
+    path: /usr/share/nginx/html/selenium
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
+- name: create templates
+  template:
+    src: "{{ item }}"
+    dest: /usr/share/nginx/html/selenium
+    owner: nginx
+    group: nginx
+    mode: 0755
+  with_items:
+    - node.sh
+    - node.bat
+    - linConfig.json
+    - winConfig.json
+    - macConfig.json
+
+- name: create archive
+  archive:
+    path: /usr/share/nginx/html/selenium
+    dest: /usr/share/nginx/html/selenium_pkg.zip
+    format: zip
+
+- name: create home page
+  template:
+    src: "{{ item }}"
+    dest: /usr/share/nginx/html
+    owner: nginx
+    group: nginx
+    mode: 0755
+  with_items:
+    - index.html
