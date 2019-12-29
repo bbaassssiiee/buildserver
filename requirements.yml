@@ -13,7 +13,11 @@
   version: master
 
 - src: https://github.com/dockpack/base_gcc.git
-  name: dockpack.base_cplusplus
+  name: dockpack.base_gcc
+  version: master
+
+- src: https://github.com/dockpack/base_boost.git
+  name: dockpack.base_boost
   version: master
 
 - src: https://github.com/dockpack/base_docker.git
@@ -54,7 +58,7 @@
 
 - src: https://github.com/dockpack/base_maven.git
   name: dockpack.base_maven
-  version: develop
+  version: master
 
 - src: https://github.com/dockpack/base_python.git
   name: dockpack.base_python
