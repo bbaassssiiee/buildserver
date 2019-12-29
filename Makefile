@@ -19,15 +19,14 @@ help:
 	@echo "make cleanroles    -Cleanup vm's and  ansible roles"
 
 .venv:
-	@echo Install python virtualenv.
-	which virtualenv || echo "please install python2 virtualenv, or run 'vagrant up'"
-	virtualenv .venv
-	( . .venv/bin/activate && pip install --upgrade --ignore-installed -r requirements.txt )
+	@echo Install a python3 venv.
+	python3 -m venv .venv
+	( . .venv/bin/activate && pip3 install --upgrade --ignore-installed -r requirements.txt )
 
+.PHONY: galaxy_roles
 galaxy_roles: .venv
 	@echo Install Ansible galaxy roles.
-	rm -rf galaxy_roles
-	( . .venv/bin/activate && ansible-playbook -c local galaxy_import.yml )
+	( . .venv/bin/activate && ansible-galaxy install -p ./galaxy_roles --force --role-file requirements.yml )
 
 files/ca-certificates/internal_ca.cer: .venv
 	@( . .venv/bin/activate && ./trust_me.yml )
