@@ -11,8 +11,8 @@
 
 - name: 'create website home page'
   copy:
-    src: "{{item}}"
-    dest: "/usr/share/nginx/html/{{item}}"
+    src: "{{ item }}"
+    dest: "/usr/share/nginx/html/{{ item }}"
     owner: root
     group: nginx
     mode: 0640
@@ -24,8 +24,8 @@
 
 - name: 'copy website style sheets'
   copy:
-    src: "rw_common/themes/ideal/{{item}}"
-    dest: "/usr/share/nginx/html/rw_common/themes/ideal/{{item}}"
+    src: "rw_common/themes/ideal/{{ item }}"
+    dest: "/usr/share/nginx/html/rw_common/themes/ideal/{{ item }}"
     owner: root
     group: nginx
     mode: 0640
@@ -39,8 +39,8 @@
 
 - name: 'copy website graphics'
   copy:
-    src: "rw_common/themes/ideal/images/{{item}}"
-    dest: "/usr/share/nginx/html/rw_common/themes/ideal/images/{{item}}"
+    src: "rw_common/themes/ideal/images/{{ item }}"
+    dest: "/usr/share/nginx/html/rw_common/themes/ideal/images/{{ item }}"
     owner: root
     group: nginx
     mode: 0640
