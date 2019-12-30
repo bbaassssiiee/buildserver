@@ -19,6 +19,7 @@
     - {role: pki, tags: 'pki'}
     - {role: firewall, tags: 'firewall'}
     - {role: jdauphant.nginx, tags: 'nginx'}
+    - {role: homepage, tags: 'homepage'}
 
 - name: Install build tools
   hosts: build_master:ubuntu

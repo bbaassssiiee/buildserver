@@ -1,0 +1,3 @@
+---
+# Install files in document root
+- include: site.yml

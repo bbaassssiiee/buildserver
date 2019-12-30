@@ -1,10 +1,10 @@
 ---
 - name: 'create directories'
   file:
-    dest: '/var/www/html/rw_common/themes/ideal/images'
+    dest: '/usr/share/nginx/html/rw_common/themes/ideal/images'
     state: directory
     owner: root
-    group: apache
+    group: nginx
     mode: 0750
   tags:
     - httpd
@@ -12,9 +12,9 @@
 - name: 'create website home page'
   copy:
     src: "{{item}}"
-    dest: "/var/www/html/{{item}}"
+    dest: "/usr/share/nginx/html/{{item}}"
     owner: root
-    group: apache
+    group: nginx
     mode: 0640
   with_items:
     - index.html
@@ -25,9 +25,9 @@
 - name: 'copy website style sheets'
   copy:
     src: "rw_common/themes/ideal/{{item}}"
-    dest: "/var/www/html/rw_common/themes/ideal/{{item}}"
+    dest: "/usr/share/nginx/html/rw_common/themes/ideal/{{item}}"
     owner: root
-    group: apache
+    group: nginx
     mode: 0640
   with_items:
     - consolidated-handheld-0.css
@@ -40,9 +40,9 @@
 - name: 'copy website graphics'
   copy:
     src: "rw_common/themes/ideal/images/{{item}}"
-    dest: "/var/www/html/rw_common/themes/ideal/images/{{item}}"
+    dest: "/usr/share/nginx/html/rw_common/themes/ideal/images/{{item}}"
     owner: root
-    group: apache
+    group: nginx
     mode: 0640
   with_items:
     - footer_bg.png
