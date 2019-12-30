@@ -27,7 +27,7 @@
     - update
 
 - name: verify if root certificate is trusted
-  shell: openssl x509 -noout -subject < /etc/pki/tls/certs/ca-bundle.trust.crt | grep "{{ pki_ca }}"
+  shell: set -o pipefail && openssl x509 -noout -subject < /etc/pki/tls/certs/ca-bundle.trust.crt | grep "{{ pki_ca }}"
   ignore_errors: yes
   register: root_ca_present
   changed_when: no
@@ -52,7 +52,7 @@
   when: root_ca_present.rc != 0
 
 - name: verify if internal root certificate is present
-  shell: openssl x509 -noout -subject < /etc/pki/tls/certs/ca-bundle.trust.crt | grep "{{ pki_ca }}"
+  shell: set -o pipefail && openssl x509 -noout -subject < /etc/pki/tls/certs/ca-bundle.trust.crt | grep "{{ pki_ca }}"
   changed_when: no
 
 - name: copy server.p12
@@ -83,7 +83,7 @@
   changed_when: yes
 
 - name: validate moludus of certificate to moludus of key
-  shell: '(openssl x509 -noout -modulus -in /etc/pki/tls/certs/tmp.cer | openssl md5 ; \
+  shell: 'set -o pipefail && (openssl x509 -noout -modulus -in /etc/pki/tls/certs/tmp.cer | openssl md5 ; \
           openssl rsa -noout -modulus -in /etc/pki/tls/private/tmp.key | openssl md5) | \
           uniq | wc -l'
   changed_when: no
