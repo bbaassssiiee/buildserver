@@ -2,7 +2,7 @@
 
 - name: 'list plugins'
   become: yes
-  shell: java -jar {{ jenkins_cli }} -s http://localhost:{{ jenkins_http }}/jenkins list-plugins | cut -f 1 -d ' '
+  shell: set -o pipefail && java -jar {{ jenkins_cli }} -s http://localhost:{{ jenkins_http }}/jenkins list-plugins | cut -f 1 -d ' '
   when: plugins is defined
   register: plugins_installed
   tags:
@@ -37,7 +37,7 @@
 - name: 'update plugins'
   become: yes
   command: "java -jar {{ jenkins_cli }} -s http://localhost:{{ jenkins_http }}/jenkins install-plugin {{ plugins_updates.stdout }}"
-  when: plugins_updates.stdout != ''
+  when: not plugins_updates.stdout
   notify:
     - 'restart jenkins'
   tags:
