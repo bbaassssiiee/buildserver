@@ -55,7 +55,7 @@ Paste this into ~/.ssh/config (change home path!)
 
 <pre>
   Host 192.168.10.16
-  HostName dev
+  HostName build_master
   User vagrant
   Port 22
   UserKnownHostsFile /dev/null
