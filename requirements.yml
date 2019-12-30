@@ -86,6 +86,25 @@
 # Setup Windows machine as a Jenkins slave
 - src: https://github.com/dockpack/ferhaty.jenkins-slave.git
 
+- src: https://github.com/bbaassssiiee/ansible-windows-java.git
+  version: master
+  name: ansible-windows-java
+
+- src: https://github.com/dockpack/win_boost.git
+  scm: git
+  name: win_boost
+  version: master
+
+- src: https://github.com/dockpack/win_buildtools.git
+  scm: git
+  name: win_buildtools
+  version: master
+
+- src: https://github.com/dockpack/win_vscode.git
+  scm: git
+  name: win_vscode
+  version: master
+
 # For unix use a separate role
 - src: https://github.com/bbaassssiiee/ansible-jenkins-slave.git
 

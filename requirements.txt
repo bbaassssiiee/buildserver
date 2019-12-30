@@ -5,7 +5,10 @@ pexpect
 pycurl
 requests
 six==1.11.0
-ansible
+pywinrm[kerberos]==0.2.2
+ansible[azure]
+ansible-lint
+packaging
 molecule
 ConfigParser
 selenium
