@@ -84,11 +84,11 @@
 - src: https://github.com/bbaassssiiee/windows-selenium-role.git
 
 # Setup Windows machine as a Jenkins slave
-- src: https://github.com/ferhaty/ferhaty.jenkins-slave.git
+- src: https://github.com/dockpack/ferhaty.jenkins-slave.git
 
 # For unix use a separate role
 - src: https://github.com/bbaassssiiee/ansible-jenkins-slave.git
 
 - src: https://github.com/jdauphant/ansible-role-nginx.git
   name: jdauphant.nginx
-  version: v2.8.1
+  version: v2.22
