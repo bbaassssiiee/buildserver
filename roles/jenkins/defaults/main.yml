@@ -44,7 +44,6 @@ plugins:
   - copyartifact
   - dashboard-view
   - dry              # dont repeat yourself
-  - filesystem_scm    # for on-prem & pre-push
   - findbugs          # common bugs can be squashed
 #  - fortify360
   - git              # connect to git
