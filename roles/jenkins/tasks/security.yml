@@ -2,7 +2,7 @@
 
 - name: 'enable security'
   lineinfile:
-    dest: "{{jenkins_data}}/config.xml"
+    dest: "{{ jenkins_data }}/config.xml"
     regexp: '^  <useSecurity>false</useSecurity>'
     line: '  <useSecurity>true</useSecurity>'
     state: present
