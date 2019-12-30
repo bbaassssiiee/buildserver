@@ -1,6 +1,4 @@
 .vagrant
-roles/base_*
-roles_galaxy/*
 galaxy_roles/*
 files/*
 pki
