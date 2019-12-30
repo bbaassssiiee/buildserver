@@ -8,3 +8,4 @@ six==1.11.0
 ansible
 molecule
 ConfigParser
+selenium
