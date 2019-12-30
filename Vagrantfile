@@ -45,14 +45,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       vb.gui = false
       vb.name = "build_master"
     end
-      build_master.vm.provision "ansible_local" do |ansible|
-        ansible.playbook = "/vagrant/provision.yml"
-        ansible.compatibility_mode = "2.0"
-        ansible.galaxy_role_file = "requirements.yml"
-        ansible.galaxy_roles_path = "galaxy_roles"
-        ansible.limit = "build_master"
-        ansible.verbose = 'vv'
-      end
+    build_master.vm.provision "ansible_local" do |ansible|
+      ansible.playbook = "/vagrant/provision.yml"
+      ansible.compatibility_mode = "2.0"
+      ansible.galaxy_role_file = "requirements.yml"
+      ansible.galaxy_roles_path = "galaxy_roles"
+      ansible.limit = "build_master"
+      ansible.verbose = 'vv'
+    end
   end
 
   config.vm.define :centos6, autostart: false do |centos6|
