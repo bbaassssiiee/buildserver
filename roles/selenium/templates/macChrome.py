@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 import unittest
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -14,9 +14,9 @@ class SeleniumCBT(unittest.TestCase):
 
         caps = {}
         caps['browserName'] = "chrome"
-        #caps['platform'] = "macOS 10.14"
+        caps['platform'] = "macOS 10.14"
         caps['platform'] = "MAC"
-        caps['version'] = "72.0"
+        caps['version'] = "79.0"
 
         self.driver = webdriver.Remote(
             desired_capabilities=caps,
