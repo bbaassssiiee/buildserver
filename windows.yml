@@ -1,0 +1,27 @@
+#!/usr/bin/env ansible-playbook
+---
+
+- name: setup Vagrant box with software and config
+  hosts: windows
+  gather_facts: true
+  vars:
+    jdk_package: jdk8
+    java_major_version: 8.0
+    java_minor_version: 211
+
+  roles:
+    - role: win_vscode
+      tags: vscode
+    - role: win_buildtools
+      vars:
+        toolset: 'msvc-14.0'
+        tags: buildtools
+    - role: win_boost
+      vars:
+        toolset: 'msvc-14.0'
+        boost_version: 1.67.0
+      tags: boost
+    - role: ansible-windows-java
+      tags: java
+    - ferhaty.jenkins-slave
+    - windows-selenium-role

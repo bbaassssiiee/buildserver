@@ -13,7 +13,7 @@ rhel7 ansible_ssh_host=192.168.10.18
 ubuntu ansible_ssh_host=192.168.10.20 ansible_python_interpreter=/usr/bin/python3
 
 [windows]
-win_slave ansible_host=127.0.0.1 ansible_port=55985 man_host_type="2016"
+win_slave ansible_host=192.168.10.26 ansible_port=5986 man_host_type="2016"
 
 [windows:vars]
 ansible_user=vagrant
