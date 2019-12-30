@@ -26,6 +26,7 @@
   become: true
   vars:
     miniconda_install: true
+    DTSVER: 8
   roles:
     - role: dockpack.base_git
       when: collections_enabled
@@ -46,8 +47,8 @@
     - {role: jenkins, tags: 'jenkins'}
     - {role: selenium, tags: 'selenium'}
     - {role: dockpack.base_python, tags: 'python'}
-#    - { role: bbaassssiiee.sonar, tags: 'sonar' }
-#    - { role: bbaassssiiee.artifactory, tags: 'artifactory' } # for built stuff
+    - { role: bbaassssiiee.sonar, tags: 'sonar' }
+    - { role: bbaassssiiee.artifactory, tags: 'artifactory' } # for built stuff
 
 - name: Install docker
   hosts: centos7
@@ -55,12 +56,3 @@
 
   roles:
     - {role: dockpack.base_docker, tags: 'docker'}
-
-- name: Windows client
-  hosts: win_slave
-  gather_facts: no
-
-  roles:
-#   - ansible-oasis
-    - ferhaty.jenkins-slave
-    - windows-selenium-role

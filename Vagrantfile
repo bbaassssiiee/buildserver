@@ -122,7 +122,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   config.vm.define :win_slave, autostart: false do |win_slave|
-    win_slave.vm.box = "ferhaty/win7ie10winrm"
+    win_slave.vm.box = "jborean93/WindowsServer2016"
     win_slave.vm.guest = :windows
     win_slave.vm.communicator = "winrm"
     win_slave.winrm.username = 'vagrant'
@@ -132,13 +132,24 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     win_slave.vm.network :forwarded_port, guest:8000, host:8000
     win_slave.vm.network :forwarded_port, guest: 3389, host: 3389, id: "rdp", auto_correct: true
     win_slave.vm.provider "virtualbox" do |vb|
+     vb.default_nic_type = "virtio"
      vb.gui = false
      vb.name = "win_slave"
      vb.customize [
           "modifyvm", :id,
-          "--memory", "#$MEMSIZE",
+          "--memory", "4096",
           "--natnet1", "172.16.1/24",
+          "--natdnshostresolver1", "on",
+          "--cableconnected1", "on",
      ]
+    end
+    win_slave.vm.provision "ansible" do |ansible|
+      ansible.playbook = "windows.yml"
+      ansible.compatibility_mode = "2.0"
+#      ansible.galaxy_role_file = "requirements.yml"
+      ansible.galaxy_roles_path = "galaxy_roles"
+      ansible.limit = "win_slave"
+      ansible.verbose = 'vv'
     end
   end
 end
