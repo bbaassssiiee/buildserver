@@ -15,8 +15,8 @@
     group: nginx
     mode: 0755
   with_items:
-    - node.sh
-    - node.bat
+    - se_node.sh
+    - se_node.bat
     - Linux.json
     - Windows.json
     - Darwin.json
@@ -33,7 +33,7 @@
 - name: create home page
   template:
     src: "{{ item }}"
-    dest: /usr/share/nginx/html
+    dest: /usr/share/nginx/html/selenium
     owner: nginx
     group: nginx
     mode: 0755
