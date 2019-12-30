@@ -1,18 +1,28 @@
+---
+
 - name: 'set hostname'
   become: yes
-  hostname: name='{{inventory_hostname}}'
+  hostname:
+    name: "{{inventory_hostname}}"
   tags:
     - common
 
 - name: 'persist hostname in hosts file'
   become: yes
-  lineinfile: dest=/etc/hosts regexp='{{inventory_hostname}}'
-              line='{{ansible_all_ipv4_addresses[1]}}   {{inventory_hostname}}'
-              state=present
+  lineinfile:
+    dest: /etc/hosts
+    regexp: "{{inventory_hostname}}"
+    line: "{{ansible_all_ipv4_addresses[1]}}   {{inventory_hostname}}"
+    state: present
   tags:
     - common
 
 - name: creates issue
-  template: src=issue.j2 dest=/etc/issue owner=root group=root mode=0644
+  template:
+    src: issue.j2
+    dest: /etc/issue
+    owner: root
+    group: root
+    mode: 0644
   tags:
     - common

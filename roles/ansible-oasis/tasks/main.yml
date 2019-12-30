@@ -5,14 +5,15 @@
   script: install_elevate.ps1
 
 - name: install packages with Chocolatey
-  win_chocolatey: name={{ item }} state=present
-  with_items:
-    - firefox
-    - git
-    - jdk7
-    - notepadplusplus.install
-    - vcredist2010
-    - cygwin
+  win_chocolatey:
+    name:
+      - firefox
+      - git
+      - jdk7
+      - notepadplusplus.install
+      - vcredist2010
+      - cygwin
+    state: present
 
 # for some reason this package did not install like above.
 - name: 'install cyg-get with Chocolatey.ps1'
@@ -22,7 +23,9 @@
   script: cygwin_packages.ps1
 
 - name: copy requirements for Pip
-  win_copy: src=requirements.txt dest=C:\\tools\cygwin\tmp
+  win_copy:
+    src: requirements.txt
+    dest: 'C:\\tools\cygwin\tmp'
 
 - name: run powershell script to install Ansible
   script: cygwin_ansible.ps1
