@@ -29,6 +29,8 @@
     - role: dockpack.base_git
       when: collections_enabled
     - {role: dockpack.base_cmake, tags: 'cmake'}
+    - {role: dockpack.base_gcc, tags: 'gcc'}
+    - {role: dockpack.base_boost, tags: 'boost'}
     - {role: dockpack.base_java8, tags: 'java8'}
     - {role: dockpack.base_ant, tags: 'ant'}
     - {role: dockpack.base_maven, tags: 'maven'}
@@ -42,7 +44,7 @@
   roles:
     - {role: jenkins, tags: 'jenkins'}
     - {role: selenium, tags: 'selenium'}
-#    - {role: dockpack.base_python, tags: 'python'}
+    - {role: dockpack.base_python, tags: 'python'}
 #    - { role: bbaassssiiee.sonar, tags: 'sonar' }
 #    - { role: bbaassssiiee.artifactory, tags: 'artifactory' } # for built stuff
 
