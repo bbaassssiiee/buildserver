@@ -146,7 +146,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     win_slave.vm.provision "ansible" do |ansible|
       ansible.playbook = "windows.yml"
       ansible.compatibility_mode = "2.0"
-#      ansible.galaxy_role_file = "requirements.yml"
+      ansible.galaxy_role_file = "requirements.yml"
       ansible.galaxy_roles_path = "galaxy_roles"
       ansible.limit = "win_slave"
       ansible.verbose = 'vv'
