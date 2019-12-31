@@ -2,6 +2,7 @@
 galaxy_roles/*
 files/*
 pki
+.m2
 .venv
 .rnd
 .DS_Store
