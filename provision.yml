@@ -27,6 +27,8 @@
   vars:
     miniconda_install: true
     DTSVER: 8
+    collections_enabled: true
+    development_groupinstall: false
   roles:
     - role: dockpack.base_git
       when: collections_enabled

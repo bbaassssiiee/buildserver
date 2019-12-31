@@ -11,16 +11,15 @@ The build server on Centos is provisioned with Vagrant and Ansible. It uses seve
 It comes fully configured with the example project (game-of-life) of the open source book ["Jenkins, the Definitive Guide"](http://www.wakaleo.com/books/jenkins-the-definitive-guide).
 Plugins for Jenkins and Sonar are provisioned from specs in roles/jenkins/vars/main.yml and roles/sonar/vars/main.yml.
 
-**Tomcat+PostgreSQL** are deployed on a separate VM to mimic production.
-
-**Windows 7 IE 10** is used for post-deployment testing.
+**Docker** is deployed on a separate VM to mimic production.
+**Windows 2016** can be used for compiling Java8/C++ with Boost, or IE testing.
 
 Requirements
 ============
 On Windows
 ----------
 1. [Chocolatey](https://chocolatey.org) (on windows only)
-2. [VirtualBox](http://download.virtualbox.org/virtualbox/4.3.30/)
+2. [VirtualBox](http://download.virtualbox.org/virtualbox/6.0.14/)
 3. Install Ansible, Vagrant & Cygwin using [this Powershell script](https://github.com/Hruodland/cygvagans)
 
 
@@ -33,9 +32,9 @@ On RedHat/Fedora/Centos Linux:
 ------------------------------
  `yum install ansible`
 
- Download & install [VirtualBox](http://download.virtualbox.org/virtualbox/4.3.30/)
+ Download & install [VirtualBox](http://download.virtualbox.org/virtualbox/6.0.14/)
 
- Download & install [Vagrant](https://dl.bintray.com/mitchellh/vagrant/)
+ Download & install [Vagrant](https://www.vagrantup.com/downloads.html)
 
 
 Quickstart
@@ -63,7 +62,7 @@ You need access to the internet (i.e. `nslookup mirrorlist.centos.org` should wo
 
     vagrant up centos7
     vagrant up centos6
-    vagrant up rhel7
+    vagrant up win_slave
 
 **Run the provisioner**
 
@@ -77,8 +76,8 @@ You need access to the internet (i.e. `nslookup mirrorlist.centos.org` should wo
 
 **Bring up the windows 7 VM, and provision it:**
 
-    vagrant up --no-provision windows
-    ansible-playbook -l windows provision.yml
+    vagrant up --no-provision win_slave
+    ansible-playbook -l win_slave provision.yml
 
 **Connect to the buildserver** at the host-only address [http://192.168.10.28](http://192.168.10.28) (you can set that address in the Vagrantfile)
 
