@@ -27,13 +27,16 @@
 
   roles:
     - {role: dockpack.base_java8, tags: 'java'}
+    - {role: dockpack.base_ant, tags: 'ant'}
+    - {role: dockpack.base_maven, tags: 'maven'}
+    - {role: dockpack.base_gradle, tags: 'gradle'}
     - {role: jenkins, tags: 'jenkins'}
     - {role: selenium, tags: 'selenium'}
     - {role: dockpack.base_python, tags: 'python'}
-    - { role: bbaassssiiee.sonar, tags: 'sonar' }
-    - { role: bbaassssiiee.artifactory, tags: 'artifactory' } # for built stuff
+    - {role: bbaassssiiee.artifactory, tags: 'artifactory'} # for built stuff
+#    - {role: bbaassssiiee.sonar, tags: 'sonar'}
 
-- name: Install build tools
+- name: Install dockpack developer tools
   hosts: build_master:ubuntu
   become: true
   vars:
@@ -42,12 +45,9 @@
     collections_enabled: true
     development_groupinstall: false
   roles:
-    - role: dockpack.base_git
-    - {role: dockpack.base_cmake, tags: 'cmake'}
-    - {role: dockpack.base_ant, tags: 'ant'}
-    - {role: dockpack.base_maven, tags: 'maven'}
-    - {role: dockpack.base_gradle, tags: 'gradle'}
+    - {role: dockpack.base_git, tags: 'git'}
     - {role: dockpack.base_miniconda, tags: 'conda'}
+    - {role: dockpack.base_cmake, tags: 'cmake'}
     - {role: dockpack.base_gcc, tags: 'gcc'}
     - {role: dockpack.base_boost, tags: 'boost'}
     - {role: dockpack.base_goss, tags: 'goss'}
