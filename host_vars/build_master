@@ -1,9 +1,25 @@
 ---
 
 sel_role: hub
-vault_postgres_user: dba
-vault_postgres_pass: dba_pass
+base_postgres_user: dba
+base_postgres_pass: dba_pass
 base_postgres_net: samenet
+
+java8_rpms:
+  - 'java-1.8.0-openjdk-headless.x86_64'
+  - 'java-1.8.0-openjdk-devel.x86_64'
+  - 'java-11-openjdk-headless.x86_64'
+  - 'java-11-openjdk-devel.x86_64'
+  - 'java-latest-openjdk-headless'
+  - 'java-latest-openjdk-devel.x86_64'
+  - 'java-runtime-decompiler'
+  - 'junit'
+  - 'jzlib'
+  - 'groovy'
+  - 'log4j'
+  - 'saxon'
+  - 'xalan-j2'
+  - 'xerces-j2'
 
 input_artifactory_password: password
 artifactory_version: "4.9.0"
