@@ -73,18 +73,18 @@
 
 - src: https://github.com/bbaassssiiee/artifactory.git
   name: bbaassssiiee.artifactory
-  version: v1.1.1
+  version: master
 
 - src: https://github.com/bbaassssiiee/sonar.git
   name: bbaassssiiee.sonar
-  version: v0.1.4
+  version: master
 
 - src: https://github.com/bbaassssiiee/ansible-selenium-role.git
 
-- src: https://github.com/bbaassssiiee/windows-selenium-role.git
-
 # Setup Windows machine as a Jenkins slave
 - src: https://github.com/dockpack/ferhaty.jenkins-slave.git
+
+- src: https://github.com/bbaassssiiee/windows-selenium-role.git
 
 - src: https://github.com/bbaassssiiee/ansible-windows-java.git
   version: master
