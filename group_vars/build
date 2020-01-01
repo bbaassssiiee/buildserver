@@ -1,5 +1,22 @@
 ---
-my_scope: build
+
+jenkins_data: "/data/jenkins"
+
+java8_rpms:
+  - 'java-1.8.0-openjdk-headless.x86_64'
+  - 'java-1.8.0-openjdk-devel.x86_64'
+  - 'java-11-openjdk-headless.x86_64'
+  - 'java-11-openjdk-devel.x86_64'
+  - 'java-latest-openjdk-headless'
+  - 'java-latest-openjdk-devel.x86_64'
+  - 'java-runtime-decompiler'
+  - 'junit'
+  - 'jzlib'
+  - 'groovy'
+  - 'log4j'
+  - 'saxon'
+  - 'xalan-j2'
+  - 'xerces-j2'
 
 vault_postgres_user: dba
 vault_postgres_pass: dba_pass
@@ -24,7 +41,7 @@ yum_packages:
    - yum-utils
    - createrepo
 
-jenkins_data: "/data/jenkins"
+
 
 nginx_sites:
   default:

@@ -18,8 +18,18 @@
   </markupFormatter>
   <jdks>
     <jdk>
-      <name>java8</name>
-      <home>{{ ansible_local.java8.java8.java8_home |default('/usr/lib/jvm/java/bin') }}</home>
+      <name>java-1.8.0-openjdk</name>
+      <home>/usr/lib/jvm/java-1.8.0-openjdk</home>
+      <properties/>
+    </jdk>
+    <jdk>
+      <name>java-11-openjdk</name>
+      <home>/usr/lib/jvm/java-11-openjdk</home>
+      <properties/>
+    </jdk>
+    <jdk>
+      <name>java-13-openjdk</name>
+      <home>/usr/lib/jvm/java-13-openjdk</home>
       <properties/>
     </jdk>
   </jdks>
