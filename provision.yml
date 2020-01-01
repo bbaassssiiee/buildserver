@@ -10,7 +10,7 @@
     - {role: motd, tags: 'motd'}
     - {role: dockpack.base_common, tags: 'common'}
     - {role: dockpack.base_utils, tags: 'utils'}
-    - {role: dockpack.base_goss, tags: 'goss'}
+
 
 - name: Install web server
   hosts: build_master
@@ -26,6 +26,7 @@
   become: true
 
   roles:
+    - {role: dockpack.base_java8, tags: 'java'}
     - {role: jenkins, tags: 'jenkins'}
     - {role: selenium, tags: 'selenium'}
     - {role: dockpack.base_python, tags: 'python'}
@@ -43,13 +44,13 @@
   roles:
     - role: dockpack.base_git
     - {role: dockpack.base_cmake, tags: 'cmake'}
-    - {role: dockpack.base_gcc, tags: 'gcc'}
-    - {role: dockpack.base_boost, tags: 'boost'}
-    - {role: dockpack.base_java8, tags: 'java'}
     - {role: dockpack.base_ant, tags: 'ant'}
     - {role: dockpack.base_maven, tags: 'maven'}
     - {role: dockpack.base_gradle, tags: 'gradle'}
     - {role: dockpack.base_miniconda, tags: 'conda'}
+    - {role: dockpack.base_gcc, tags: 'gcc'}
+    - {role: dockpack.base_boost, tags: 'boost'}
+    - {role: dockpack.base_goss, tags: 'goss'}
 
 - name: Install docker
   hosts: centos7
