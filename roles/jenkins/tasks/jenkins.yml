@@ -23,7 +23,7 @@
 
 - name: 'make sure jenkins_cache directory exists'
   file:
-    path: var/cache/jenkins
+    path: /var/cache/jenkins
     recurse: yes
     owner: jenkins
     group: jenkins
