@@ -21,26 +21,6 @@
     - {role: jdauphant.nginx, tags: 'nginx'}
     - {role: homepage, tags: 'homepage'}
 
-- name: Install build tools
-  hosts: build_master:ubuntu
-  become: true
-  vars:
-    miniconda_install: true
-    DTSVER: 8
-    collections_enabled: true
-    development_groupinstall: false
-  roles:
-    - role: dockpack.base_git
-      when: collections_enabled
-    - {role: dockpack.base_cmake, tags: 'cmake'}
-    - {role: dockpack.base_gcc, tags: 'gcc'}
-    - {role: dockpack.base_boost, tags: 'boost'}
-    - {role: dockpack.base_java8, tags: 'java8'}
-    - {role: dockpack.base_ant, tags: 'ant'}
-    - {role: dockpack.base_maven, tags: 'maven'}
-    - {role: dockpack.base_gradle, tags: 'gradle'}
-    - {role: dockpack.base_miniconda, tags: 'conda'}
-
 - name: Install Jenkins
   hosts: build_master
   become: true
@@ -51,6 +31,25 @@
     - {role: dockpack.base_python, tags: 'python'}
     - { role: bbaassssiiee.sonar, tags: 'sonar' }
     - { role: bbaassssiiee.artifactory, tags: 'artifactory' } # for built stuff
+
+- name: Install build tools
+  hosts: build_master:ubuntu
+  become: true
+  vars:
+    miniconda_install: true
+    DTSVER: 8
+    collections_enabled: true
+    development_groupinstall: false
+  roles:
+    - role: dockpack.base_git
+    - {role: dockpack.base_cmake, tags: 'cmake'}
+    - {role: dockpack.base_gcc, tags: 'gcc'}
+    - {role: dockpack.base_boost, tags: 'boost'}
+    - {role: dockpack.base_java8, tags: 'java'}
+    - {role: dockpack.base_ant, tags: 'ant'}
+    - {role: dockpack.base_maven, tags: 'maven'}
+    - {role: dockpack.base_gradle, tags: 'gradle'}
+    - {role: dockpack.base_miniconda, tags: 'conda'}
 
 - name: Install docker
   hosts: centos7
