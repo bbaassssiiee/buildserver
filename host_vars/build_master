@@ -23,7 +23,7 @@ java8_rpms:
 
 input_artifactory_password: password
 artifactory_version: "4.9.0"
-artifactory_database: postgres
+artifactory_database: 'postgresql'
 
 # packages for systems management
 yum_packages:
