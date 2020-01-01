@@ -1,9 +1,5 @@
 ---
-my_scope: build_master
 
-http_port: 80
-https_port: 443
-slaveAgentPort: 8079
 sel_role: hub
 vault_postgres_user: dba
 vault_postgres_pass: dba_pass

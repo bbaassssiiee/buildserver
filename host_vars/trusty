@@ -1,7 +1,5 @@
 ---
-my_scope: trusty
 base_utils:
   - iptraf
   - nmap
   - sysstat
-user: vagrant

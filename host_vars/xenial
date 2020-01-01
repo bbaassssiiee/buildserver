@@ -1,5 +1,4 @@
 ---
-my_scope: xenial
 base_utils:
   - iptraf
   - nmap

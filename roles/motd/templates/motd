@@ -1,1 +1,1 @@
-# {{ my_scope }} {{ ansible_managed }}
+# {{ inventory_hostname }}

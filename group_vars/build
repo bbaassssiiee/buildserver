@@ -1,23 +1,6 @@
 ---
 my_scope: build
 
-rhel7cis_httpd: true
-
-rhel7cis_notauto: false
-rhel7cis_section1: true
-rhel7cis_section2: true
-rhel7cis_section3: true
-rhel7cis_section4: true
-rhel7cis_section5: true
-rhel7cis_section6: true
-rhel7cis_section7: true
-rhel7cis_section8: true
-rhel7cis_section9: true
-
-http_port: 80
-https_port: 443
-slaveAgentPort: 8079
-
 vault_postgres_user: dba
 vault_postgres_pass: dba_pass
 base_postgres_net: samenet
