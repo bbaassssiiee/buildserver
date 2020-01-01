@@ -1,4 +1,6 @@
 ---
 
+http_port: 80
+https_port: 443
 slaveAgentPort: 8079
 seleniumHubPort: 4444
